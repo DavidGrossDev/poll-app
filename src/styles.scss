@@ -1,12 +1,15 @@
+@use '../src/app/styles/mixins/mixins.scss' as md;
+
 * {
     margin: 0;
     box-sizing: border-box;
+    // width: 100%;
 }
 
 body {
     background-color: #35273A;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+
+    @include md.d_flex();
 }
+
