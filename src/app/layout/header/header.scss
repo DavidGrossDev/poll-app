@@ -1,12 +1,8 @@
-// body {
-//     width: 1220px;
-// }
+@use '../../styles/mixins/mixins.scss' as md;
 
 header {
    width: 1220px;
-
-   height: 46px;
-   padding: 39px 111px 0 111px;
-   display: flex;
-   justify-content: flex-start;
+   height: 50px;
+   padding: 39px 111px 39px 111px;
+   @include md.d_flex($jc:flex-start);
 }
