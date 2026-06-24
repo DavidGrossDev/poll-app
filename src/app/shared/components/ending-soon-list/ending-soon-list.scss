@@ -1,0 +1,81 @@
+@use '../../../styles/mixins/mixins.scss' as md;
+
+.ending-soon {
+    &--body {
+        @include md.d_flex();
+    }
+
+    &--main {
+        width: 1042px;
+        height: 522px;
+        
+        &--head {
+            height: 138px;
+            @include md.d_flex($ai: flex-start);
+
+            >h1 {
+                @include md.f_nerko($fs: 72px);
+            }
+
+        }
+    }
+
+    &--section {
+        height: 382px;
+
+        @include md.d_flex($fd:column, $ai:flex-start, $jc:space-between, $gp:32px);
+        &--head {
+            @include md.d_flex($jc: flex-start);
+
+            >h2 {
+                @include md.f_mulish($fs: 32px, $fw: 500);
+            }
+
+        }
+
+        &--list {
+            height: 310px;
+            @include md.d_flex($jc:space-between);
+            width: 100%;
+            &--item {
+                cursor: pointer;
+                width: 321px;
+                height: 100%;
+                background-color: #FAF5FE;
+                border-radius: 0 80px 0 0;
+                padding: 40px 44px;
+
+                &--content {
+                    height: 210px;
+                    @include md.d_flex($fd: column, $ai: flex-start, $jc:space-between);
+
+                    &--top {
+                        @include md.d_flex($fd:column, $jc:space-between, $ai:flex-start, $gp:8px);
+                        height: 125px;
+                        &--category {
+                            @include md.f_mulish($fs:14px, $fw:600, $clr:#35273A);
+                        }
+
+                        &--main {
+                            @include md.f_mulish($fs: 26px, $fw: 700, $clr: #35273A);
+                        }
+                    }
+
+                    &--ending {
+                        &__highlight {
+                            height: 21px;
+                            background-color: #FFCFA1;
+                            border-radius: 0 14px 0 0;
+                            padding: 3px 6px;
+                            @include md.f_mulish($fs: 12px, $fw: 500, $clr: #35273A);
+                        }
+                    }
+                }
+
+                &:hover {
+                    background-color: #F4E9FB;
+                }
+            }
+        }
+    }
+}
