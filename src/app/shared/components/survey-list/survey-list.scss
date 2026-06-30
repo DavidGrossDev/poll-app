@@ -1,0 +1,75 @@
+@use '../../../styles/mixins/mixins.scss' as md;
+
+.survey-list-body {
+    @include md.d_flex();
+}
+
+.survey-list-card {
+    width: 1042px;
+    height: 478px;
+    @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 40px);
+}
+
+.survey-list-header {
+    width: 100%;
+    @include md.d_flex($jc: space-between);
+
+    &--btns {
+        @include md.d_flex($gp: 24px);
+
+        >button {
+            cursor: pointer;
+            border-width: 0;
+            border-radius: 20px;
+            padding: 2px 10px;
+            background-color: #FEE9D4;
+
+            &:hover {
+                background-color: #FFB770;
+            }
+        }
+    }
+
+    &--sort {
+        @include md.d_flex();
+        padding: 4px 6px 4px 10px;
+    }
+}
+
+.survey-list-area {
+    height: 413px;
+
+    &--item {
+        width: 513px;
+        height: 127px;
+        border-radius: 5px 50px 5px 5px;
+        padding: 12px 20px;
+        @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 24px);
+        background-color: rgba(217, 217, 217, 0.08);
+
+        &--top {
+            width: 100%;
+            @include md.d_flex($fd:column,$jc:space-between, $ai:flex-start, $gp:8px);
+            &--category{
+               @include md.f_mulish($fw:500, $clr:#FFCFA1); 
+            }
+            &--main {
+                @include md.f_mulish($fs:24px ,$fw:700, $clr:#FFFFFF);
+            }
+        }
+
+        &--bottom {
+            width: 100%;
+            @include md.d_flex($jc:flex-end);
+
+            &__highlight {
+                border-radius: 0 14px 0 0;
+                padding: 3px 6px;
+                background-color: #FFCFA1;
+                > p {
+                    @include md.f_mulish($fs: 12px,$fw:500, $clr:#221227);
+                }
+            }
+        }
+    }
+}
