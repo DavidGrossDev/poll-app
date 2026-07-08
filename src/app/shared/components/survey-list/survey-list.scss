@@ -2,6 +2,7 @@
 
 .survey-list-body {
     @include md.d_flex();
+    margin-bottom: 92px;
 }
 
 .survey-list-card {
@@ -23,6 +24,7 @@
             border-radius: 20px;
             padding: 2px 10px;
             background-color: #FEE9D4;
+            @include md.f_nokora($clr: #35273A);
 
             &:hover {
                 background-color: #FFB770;
@@ -33,11 +35,20 @@
     &--sort {
         @include md.d_flex();
         padding: 4px 6px 4px 10px;
+
+        >p {
+            @include md.f_mulish($fs: 18px, $fw: 700, $clr: #FFFFFF);
+        }
     }
 }
 
 .survey-list-area {
     height: 413px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0;
 
     &--item {
         width: 513px;
@@ -49,25 +60,28 @@
 
         &--top {
             width: 100%;
-            @include md.d_flex($fd:column,$jc:space-between, $ai:flex-start, $gp:8px);
-            &--category{
-               @include md.f_mulish($fw:500, $clr:#FFCFA1); 
+            @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 8px);
+
+            &--category {
+                @include md.f_mulish($fw: 500, $clr: #FFCFA1);
             }
+
             &--main {
-                @include md.f_mulish($fs:24px ,$fw:700, $clr:#FFFFFF);
+                @include md.f_mulish($fs: 24px, $fw: 700, $clr: #FFFFFF);
             }
         }
 
         &--bottom {
             width: 100%;
-            @include md.d_flex($jc:flex-end);
+            @include md.d_flex($jc: flex-end);
 
             &__highlight {
                 border-radius: 0 14px 0 0;
                 padding: 3px 6px;
                 background-color: #FFCFA1;
-                > p {
-                    @include md.f_mulish($fs: 12px,$fw:500, $clr:#221227);
+
+                >p {
+                    @include md.f_mulish($fs: 12px, $fw: 500, $clr: #221227);
                 }
             }
         }

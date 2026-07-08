@@ -21,7 +21,20 @@
             </div>
         </header>
         <section class="survey-list-area">
-            <div class="survey-list-area--item">
+            @for (item of list; track item) {
+                <div class="survey-list-area--item">
+                  <section class="survey-list-area--item--top">
+                    <p class="survey-list-area--item--top--category">{{item.category}}</p>
+                    <p class="survey-list-area--item--top--main">{{item.content}}</p>
+                  </section>
+                  <section class="survey-list-area--item--bottom">
+                    <div class="survey-list-area--item--bottom__highlight">
+                        <p>{{item.ending}}</p>
+                    </div>
+                  </section>  
+            </div>
+            }
+            <!-- <div class="survey-list-area--item">
                   <section class="survey-list-area--item--top">
                     <p class="survey-list-area--item--top--category">Team activities</p>
                     <p class="survey-list-area--item--top--main">Let’s Plan the Next Team Event Together</p>
@@ -31,7 +44,7 @@
                         <p>Ends in 1 Day</p>
                     </div>
                   </section>  
-            </div>
+            </div> -->
         </section>
     </div>
 </section>
