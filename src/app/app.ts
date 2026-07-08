@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
 import { Header } from "./layout/header/header";
 import { LandingPage } from "./shared/components/landing-page/landing-page";
 
@@ -11,4 +11,10 @@ import { LandingPage } from "./shared/components/landing-page/landing-page";
 })
 export class App {
   protected readonly title = signal('poll-app');
+
+ 
+
+  ngOnInit() {
+
+  }
 }
