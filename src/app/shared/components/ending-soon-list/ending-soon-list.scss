@@ -3,6 +3,7 @@
 .ending-soon {
     &--body {
         @include md.d_flex();
+        margin-bottom: 40px;
     }
 
     &--main {
@@ -70,11 +71,7 @@
                             background-color: #FFCFA1;
                             border-radius: 0 14px 0 0;
                             padding: 3px 6px;
-
-                            >p {
-                                @include md.f_mulish($fs: 12px, $fw: 500, $clr: #35273A);
-                            }
-
+                            @include md.f_mulish($fs: 12px, $fw: 500, $clr: #35273A);
                         }
                     }
                 }
