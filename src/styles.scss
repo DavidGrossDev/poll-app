@@ -7,9 +7,16 @@
 }
 
 body {
-    background-color: #35273A;
     width: 100%;
 
     @include md.d_flex();
+}
+
+body.default {
+    background-color: #35273A;
+}
+
+body.bckgrdclr-wh {
+    background-color: #FFFFFF;
 }
 
