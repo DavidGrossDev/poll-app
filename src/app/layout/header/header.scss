@@ -5,4 +5,5 @@ header {
    height: 50px;
    padding: 39px 111px 39px 111px;
    @include md.d_flex($jc:flex-start);
+   margin-bottom: 40px;
 }
