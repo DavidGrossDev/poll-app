@@ -1,0 +1,51 @@
+@use '../../../styles/mixins/mixins.scss' as md;
+
+.survey-overview {
+    width: 702px;
+    height: 855px;
+    border-radius: 0 160px 0 0;
+    padding: 40px;
+    background-color: rgba(142, 112, 153, 0.1);
+    @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 8px);
+
+    &--state {
+        @include md.d_flex($jc: flex-start);
+
+        &__highlight {
+            border-radius: 0 14px 0 0;
+            padding: 3px 12px 3px 8px;
+            background-color: #FFB770;
+            @include md.f_mulish($fw: 600, $clr: #221227);
+        }
+    }
+}
+
+.survey-card {
+    width: 622px;
+    height: 741px;
+
+    &--head {
+        @include md.d_flex($fd: column, $jc:space-between, $ai: flex-start, $gp: 8px);
+        &--ending-category {
+            width: 608px;
+            @include md.d_flex($jc: space-between);
+
+            >p {
+                @include md.f_mulish($fs: 14px, $fw: 500, $clr: #35273A);
+            }
+        }
+
+        &--title {
+            @include md.f_nerko($fs: 56px, $clr: #EE9236);
+            line-height: 50px;
+        }
+
+        &--description {
+            @include md.f_mulish($fw: 500, $clr: #35273A);
+        }
+    }
+
+    &--question-list {
+        
+    }
+}
