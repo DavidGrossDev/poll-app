@@ -8,56 +8,27 @@
                 <h3>Ending soon surveys</h3>
             </div>
             <section class="ending-soon--section--list">
-                <div class="ending-soon--section--list--item">
+
+                @for (item of endingSoonList; track item) {
+                    <div class="ending-soon--section--list--item">
                     <section class="ending-soon--section--list--item--content">
                         <div class="ending-soon--section--list--item--content--top">
                             <p class="ending-soon--section--list--item--content--top--cathegory">
-                                Team Activities
+                                {{item.category}}
                             </p>
                             <p class="ending-soon--section--list--item--content--top--main">
-                                Let’s Plan the Next Team Event Together
+                                {{item.content}}
                             </p>
                         </div>
 
                         <div class="ending-soon--section--list--item--content--ending">
-                            <div class="ending-soon--section--list--item--content--ending__highlight">
-                                <p>Ends in 1 Day</p>
-                            </div>
+                            
+                                <p class="ending-soon--section--list--item--content--ending__highlight">{{item.ending}}</p>
+                            
                         </div>
                     </section>
                 </div>
-                <div class="ending-soon--section--list--item">
-                    <section class="ending-soon--section--list--item--content">
-                        <div class="ending-soon--section--list--item--content--top">
-                            <div class="ending-soon--section--list--item--content--top--cathegory">Health & Wellness
-                            </div>
-                            <div class="ending-soon--section--list--item--content--top--main">Fit & wellness survey!
-                            </div>
-                        </div>
-
-                        <div class="ending-soon--section--list--item--content--ending">
-                            <div class="ending-soon--section--list--item--content--ending__highlight">
-                                <p>Ends in 2 Days</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="ending-soon--section--list--item">
-                    <section class="ending-soon--section--list--item--content">
-                        <div class="ending-soon--section--list--item--content--top">
-                            <div class="ending-soon--section--list--item--content--top--cathegory">Gaming &
-                                Entertainment</div>
-                            <div class="ending-soon--section--list--item--content--top--main">Gaming habits and favorite
-                                games!</div>
-                        </div>
-
-                        <div class="ending-soon--section--list--item--content--ending">
-                            <div class="ending-soon--section--list--item--content--ending__highlight">
-                                <p>Ends in 3 Days</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                }
             </section>
         </section>
     </main>
