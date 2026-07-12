@@ -1,5 +1,9 @@
 @use '../../../styles/mixins/mixins.scss' as md;
 
+.survey-body {
+    @include md.d_flex($jc: flex-start, $ai: flex-end, $gp: 42px);
+}
+
 .survey-overview {
     width: 702px;
     height: 855px;
@@ -23,9 +27,11 @@
 .survey-card {
     width: 622px;
     height: 741px;
+    @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 48px);
 
     &--head {
-        @include md.d_flex($fd: column, $jc:space-between, $ai: flex-start, $gp: 8px);
+        @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 8px);
+
         &--ending-category {
             width: 608px;
             @include md.d_flex($jc: space-between);
@@ -46,6 +52,120 @@
     }
 
     &--question-list {
-        
+        width: 622px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        padding: 0;
+
+        &--item-card {
+            width: 299px;
+            @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 24px);
+
+            &--question {
+                @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 3px);
+
+                >h3 {
+                    @include md.f_mulish($fs: 18px, $fw: 700, $clr: #35273A);
+                }
+
+                >p {
+                    padding-left: 26px;
+                    @include md.f_mulish($fs: 12px, $clr: #35273A);
+                }
+            }
+
+            &--answer-list {
+                @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 8px);
+                width: 100%;
+
+                >div {
+                    cursor: pointer;
+                    width: 100%;
+                    padding-left: 8px;
+                    @include md.d_flex($jc: flex-start, $ai: flex-start, $gp: 8px);
+                    @include md.f_mulish($clr: #35273A);
+
+                    >span {
+                        @include md.f_mulish($fw: 700, $clr: #35273A);
+                    }
+
+                    &:hover {
+                        background-color: rgba(255, 207, 161, 0.4);
+                    }
+                }
+
+            }
+        }
+    }
+
+    &--footer {
+        width: 100%;
+        @include md.d_flex($jc: flex-end);
+
+        &--btn {
+            cursor: pointer;
+            border-width: 0;
+            border-radius: 10px;
+            background-color: rgba(255, 183, 112, 0.3);
+            padding: 8px 12px;
+            @include md.f_nokora($fw: 700, $clr: #35273A);
+        }
+    }
+}
+
+.survey-results {
+    width: 315px;
+    height: 713px;
+    @include md.d_flex($fd: column, $jc: flex-start, $gp: 16px);
+
+    &--header {
+        >h2 {
+            @include md.f_nerko($fs: 32px, $clr: #221227);
+
+            >span {
+                color: #FFB770;
+            }
+        }
+    }
+
+    &--list {
+        &--card {
+            @include md.d_flex($fd: column, $jc: center, $ai: flex-start, $gp: 16px);
+
+            >h3 {
+                @include md.f_mulish($fs: 18px, $fw: 700, $clr: #35273A);
+            }
+
+            &--answer-states {
+
+                &--single-state {
+                    @include md.d_flex($jc: space-between, $ai: center, $gp: 6px);
+
+                    >p {
+                        @include md.f_mulish($fs: 12px, $fw: 700, $clr: #35273A);
+                    }
+
+                    >div {
+                        width: 255px;
+                        height: 14px;
+                        background-color: #EDEDED;
+                        border-radius: 0 20px 20px 0;
+
+                        >div {
+                            // width: 97px;
+                            height: 100%;
+                            background-color: #FFB770;
+                            border-radius: 0 20px 20px 0;
+                        }
+                    }
+
+                    >span {
+                        @include md.f_mulish($fs: 12px, $fw: 800, $clr: #D79451);
+                    }
+                }
+
+            }
+        }
     }
 }
