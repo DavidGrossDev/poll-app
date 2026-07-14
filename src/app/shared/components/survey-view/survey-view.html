@@ -138,13 +138,17 @@
             <h2>Survey results <span>Live</span></h2>
         </header>
         <main class="survey-results--list">
+            @for (survey of surveyResults; track $index) {
             <section class="survey-results--list--card">
-                <h3>1. Which date would work best for you?</h3>
-                @for (item of resultsA; track item) {
+                <h3 class="survey-results--list--card--headline">
+                    <p>{{$index +1}}.</p>
+                    <p>{{survey.question}}</p>
+                </h3>
+                @for (item of survey.answers; track $index) {
                 <div class="survey-results--list--card--answer-states">
                     <section class="survey-results--list--card--answer-states--single-state">
                         <p>{{item.answer}}</p>
-                        <div>
+                        <div class="survey-results--list--card--answer-states--single-state--bar">
                             <div [style.width.%]="item.value"></div>
                         </div>
                         <span>{{item.value}}%</span>
@@ -152,6 +156,7 @@
                 </div>
                 }
             </section>
+            }
         </main>
     </section>
 </section>
