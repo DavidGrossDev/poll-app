@@ -1,0 +1,58 @@
+@use "../../../styles/mixins/mixins.scss" as md;
+
+
+
+.create-body {}
+
+.create-survey {
+    width: 1166px;
+    height: 844px;
+    padding: 40px 54px;
+    border-radius: 5px 100px 5px 5px;
+    background-color: #35273A;
+    margin-bottom: 42px;
+    @include md.d_flex($fd: column, $jc:space-between, $ai:flex-start, $gp: 32px);
+
+    &--headline {
+        height: 87px;
+        @include md.d_flex($jc:space-between);
+        width: 100%;
+        &__left {
+            >p {
+                width: 59px;
+                padding: 3px 12px 3px 8px;
+                border-radius: 0 14px 0 0;
+                background-color: #FFCFA1;
+                @include md.f_mulish($fw: 600, $clr: #221227);
+            }
+
+            >h1 {
+                @include md.f_nerko($fs: 56px, $clr: #EE9236);
+            }
+        }
+
+        &__right{
+            height: 100%;
+            @include md.d_flex($jc:flex-end, $ai:flex-end);
+            >button {
+                cursor: pointer;
+                background-color: rgba(255, 183, 112, 0.3);
+                border-width: 0;
+                border-radius: 10px;
+                padding: 8px 12px;
+                @include md.d_flex($gp:10px);
+                >p {
+                    @include md.f_nokora($fw: 700, $clr:#FEFDFF);
+                }
+            }
+        }
+    }
+
+    &--form-card {
+        width: 100%;
+        min-height: 549px;
+        padding: 40px 32px;
+        border-radius: 5px 80px 5px 5px;
+        background-color: rgba(142, 112, 153, 0.16);
+    }
+}
