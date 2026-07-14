@@ -172,4 +172,9 @@
             }
         }
     }
+
+    &--no-results-card {
+        @include md.d_flex($fd:column, $jc: space-between, $gp:146px);
+        @include md.f_mulish($fs: 18px, $fw: 700, $clr: #35273A);
+    }
 }

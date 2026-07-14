@@ -10,6 +10,8 @@ export class SurveyView {
   ngOnInit() {
     document.body.classList.remove('default', 'bckgrdclr-wh');
     document.body.classList.add('bckclr-wh');
+
+    this.surveyResults= [];
   }
 
   surveyResults = [

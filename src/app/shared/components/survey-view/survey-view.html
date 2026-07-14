@@ -138,6 +138,7 @@
             <h2>Survey results <span>Live</span></h2>
         </header>
         <main class="survey-results--list">
+            @if(surveyResults.length > 0) {
             @for (survey of surveyResults; track $index) {
             <section class="survey-results--list--card">
                 <h3 class="survey-results--list--card--headline">
@@ -157,6 +158,13 @@
                 }
             </section>
             }
+            } @else {
+                <section class="survey-results--no-results-card">
+                    <p>Results will be shown here after participants complete the survey.</p>
+                    <p>There are no answears yet.</p>
+                </section>
+            }
+
         </main>
     </section>
 </section>
