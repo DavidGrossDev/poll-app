@@ -2,6 +2,7 @@
 
 .survey-body {
     @include md.d_flex($jc: flex-start, $ai: flex-end, $gp: 42px);
+    margin-bottom: 42px;
 }
 
 .survey-overview {
@@ -116,8 +117,8 @@
 
 .survey-results {
     width: 315px;
-    height: 713px;
-    @include md.d_flex($fd: column, $jc: flex-start, $gp: 16px);
+    min-height: 678px;
+    @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 16px);
 
     &--header {
         >h2 {
@@ -130,13 +131,17 @@
     }
 
     &--list {
+        @include md.d_flex($fd: column, $jc: center, $ai: flex-start, $gp: 24px);
+
         &--card {
             @include md.d_flex($fd: column, $jc: center, $ai: flex-start, $gp: 16px);
 
-            >h3 {
+
+            &--headline {
+                @include md.d_flex($jc:flex-start, $ai: flex-start, $gp: 6px);
                 @include md.f_mulish($fs: 18px, $fw: 700, $clr: #35273A);
             }
-
+            
             &--answer-states {
 
                 &--single-state {
@@ -153,7 +158,6 @@
                         border-radius: 0 20px 20px 0;
 
                         >div {
-                            // width: 97px;
                             height: 100%;
                             background-color: #FFB770;
                             border-radius: 0 20px 20px 0;
