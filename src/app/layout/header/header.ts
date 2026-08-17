@@ -10,5 +10,5 @@ export class Header {
   ngOnInit() {
     
   }
-  path : string = "";
+  path : string = "none";
 }
