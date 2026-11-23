@@ -42,7 +42,7 @@ textarea {
     border-radius: 5px 100px 5px 5px;
     background-color: #35273A;
     margin-bottom: 42px;
-    @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 32px);
+    @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 32px);
 
     &--headline {
         height: 87px;
@@ -89,10 +89,12 @@ textarea {
         background-color: rgba(142, 112, 153, 0.16);
         @include md.f_mulish($fw: 700, $fs: 18px);
 
+        
+
         &--top {
             border: none;
             @include md.d_flex($jc: space-between);
-
+            margin-bottom: 64px;
             &--left {
                 width: 48%; //470
                 height: 134px;
@@ -164,16 +166,18 @@ textarea {
 
         &--bottom {
             height: 271px;
+            @include md.d_flex($jc:flex-start, $ai: flex-start, $gp: 91px);
 
             &--question-card {
                 border: #9c2727;
                 width: 429px;
                 height: 271px;
-                @include md.d_flex($fd: column, $ai: flex-start, $gp: 24px);
+                @include md.d_flex($fd: column,$jc:flex-start, $ai: flex-start, $gp: 24px);
 
                 &--question {
                     width: 100%;
                     @include md.d_flex($fd: column, $jc: space-between, $ai: flex-start, $gp: 8px);
+
                     >div {
                         width: 100%;
                         @include md.d_flex($jc: space-between, $gp: 4px);
@@ -190,15 +194,19 @@ textarea {
 
                 &--answers {
                     width: 100%;
-                    @include md.d_flex($fd: column, $ai:flex-start,$gp:16px);
+                    @include md.d_flex($fd: column, $ai: flex-start, $gp: 16px);
+
                     &--head {
                         width: 100%;
                         @include md.d_flex($jc: space-between);
+
                         >p {
-                            @include md.f_mulish($fw: 700,$fs: 18px);
+                            @include md.f_mulish($fw: 700, $fs: 18px);
                         }
+
                         >div {
                             @include md.d_flex($jc: space-between, $gp: 4px);
+
                             >p {
                                 @include md.f_mulish($fs: 14px);
                             }
@@ -208,17 +216,55 @@ textarea {
                     &--main {
                         width: 100%;
                         padding-right: 4px;
+                        @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 8px);
+
                         &--answer-card {
-                           @include md.d_flex($jc:space-between, $gp: 8px);
-                           >p {
-                            @include md.f_mulish($fw: 700, $fs: 18px);
-                           } 
-                           >input {
-                            flex: 1;
-                           }
+                            width: 100%;
+                            @include md.d_flex($jc: space-between, $gp: 8px);
+
+                            >p {
+                                @include md.f_mulish($fw: 700, $fs: 18px);
+                            }
+
+                            >input {
+                                flex: 1;
+                            }
                         }
                     }
                 }
+
+                &--add-answer {
+                    height: 40px;
+                    padding-left: 26px;
+
+                    &--answer-button {
+                        cursor: pointer;
+                        padding: 8px 12px;
+
+                        >div {
+                            @include md.d_flex($gp: 10px);
+                            border-bottom: 1px solid #FEFDFF;
+
+                            >p {
+                                @include md.f_nokora($fw: 700, $clr: #FEFDFF);
+                            }
+
+                            >svg {
+                                width: 16px;
+                                height: 16px;
+                            }
+                        }
+                    }
+                }
+
+                > button {
+                        @include md.d_flex($gp: 10px);
+                        @include md.f_nokora($fw: 700, $clr: #FEFDFF);
+                        border-width: 0;
+                        border-radius: 10px;
+                        padding: 8px 12px;
+                        background-color: #FFB7704D;
+                    }
             }
         }
     }
