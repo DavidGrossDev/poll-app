@@ -83,18 +83,25 @@ textarea {
 
     &--form-card {
         width: 100%;
-        min-height: 549px;
-        padding: 40px 32px;
-        border-radius: 5px 80px 5px 5px;
-        background-color: rgba(142, 112, 153, 0.16);
         @include md.f_mulish($fw: 700, $fs: 18px);
 
-        
+        >form {
+            @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 48px);
+        }
+
+        &--div {
+            height: 100%;
+            min-height: 549px;
+            padding: 40px 32px;
+            border-radius: 5px 80px 5px 5px;
+            background-color: rgba(142, 112, 153, 0.16);
+        }
 
         &--top {
             border: none;
             @include md.d_flex($jc: space-between);
             margin-bottom: 64px;
+
             &--left {
                 width: 48%; //470
                 height: 134px;
@@ -134,19 +141,64 @@ textarea {
                     &--choose-category {
                         @include md.f_mulish($fw: 700, $fs: 18px);
 
-                        &__drop-down {
-                            cursor: pointer;
-                            @include md.d_flex($jc: space-between, $gp: 8px);
-                            border-radius: 6px;
-                            padding: 4px 6px 4px 10px;
+                        &--drop-down {
+                            position: relative;
+                            
+                            &--button {
+                                border-width: 0;
+                                background-color: rgba(0, 0, 0, 0);
+                                @include md.f_mulish($fw: 700, $fs: 18px, $clr: #FEFDFF);
+                                @include md.d_flex($jc: space-between, $gp: 8px);
+                                padding: 4px 6px 4px 10px;
+                                &__svg {
+                                    transition: transform 150ms ease;
+
+                                    &.rotated {
+                                        transform: rotate(180deg);
+                                        >path {
+                                            fill:#FFB770;
+                                        }
+                                        
+                                    }
+                                    &.choosen {
+                                        >path {
+                                            fill:#FFB770;
+                                        }
+                                    }
+                                }
+                            }
+
+                            &--dropdown-list {
+                                cursor: pointer;
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                width: 100%;
+                                z-index: 10;
+                                padding: 8px 4px;
+                                border-radius: 6px;
+                                background-color: #FFFFFF;
+                                @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 4px);
+                                @include md.f_mulish($fs:14px, $clr:#35273A);
+                                >div {
+                                    &:hover {
+                                        background-color: #F4E9FB;
+                                    }
+                                }
+                            }
                         }
+
+                        &--show-choose-category{
+                            padding: 4px 6px 4px 10px;
+                            @include md.f_mulish($fs:14px, $clr:#FFB770);
+                        }
+
                     }
                 }
             }
 
             &--right {
 
-                // width: 52%;
                 &--description {
                     @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 4px);
 
@@ -166,13 +218,13 @@ textarea {
 
         &--bottom {
             height: 271px;
-            @include md.d_flex($jc:flex-start, $ai: flex-start, $gp: 91px);
+            @include md.d_flex($jc: flex-start, $ai: flex-start, $gp: 91px);
 
             &--question-card {
                 border: #9c2727;
                 width: 429px;
                 height: 271px;
-                @include md.d_flex($fd: column,$jc:flex-start, $ai: flex-start, $gp: 24px);
+                @include md.d_flex($fd: column, $jc: flex-start, $ai: flex-start, $gp: 24px);
 
                 &--question {
                     width: 100%;
@@ -257,15 +309,28 @@ textarea {
                     }
                 }
 
-                > button {
-                        @include md.d_flex($gp: 10px);
-                        @include md.f_nokora($fw: 700, $clr: #FEFDFF);
-                        border-width: 0;
-                        border-radius: 10px;
-                        padding: 8px 12px;
-                        background-color: #FFB7704D;
-                    }
+                >button {
+                    @include md.d_flex($gp: 10px);
+                    @include md.f_nokora($fw: 700, $clr: #FEFDFF);
+                    border-width: 0;
+                    border-radius: 10px;
+                    padding: 8px 12px;
+                    background-color: #FFB7704D;
+                }
             }
+        }
+    }
+
+    &--footer {
+        @include md.d_flex($jc: flex-end);
+        width: 100%;
+
+        >button {
+            border-width: 0;
+            border-radius: 10px;
+            @include md.f_nokora($fw: 700, $fs: 18px, $clr: #221227);
+            padding: 12px 16px;
+            background-color: #FFCFA1;
         }
     }
 }
