@@ -11,8 +11,7 @@ export class SurveyForm {
 
   isDropdownOpen: boolean = false;
   // isChoosen: boolean = false;
-  questionCounter: number = 1;
-  answerCounter: number = 1;
+  questionIndex : number = 0;
 
   get isChoosen(): boolean {
     return Boolean(this.createForm.controls.category.value);
@@ -25,7 +24,9 @@ export class SurveyForm {
 
   createForm = new FormGroup({
     name: new FormControl(''),
-    endDate: new FormControl(''),
+    endDate: new FormControl('', [
+      Validators.pattern(/^\d{2}\.\d{2}\.\d{4}$/)
+    ]),
     description: new FormControl(''),
     category: new FormControl(''),
 
@@ -50,6 +51,13 @@ export class SurveyForm {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  toggleMultipleAnswers(questionIndex: number): void {
+    const control = this.createForm.controls.questions
+      .at(questionIndex).controls.allowMultipleAnswers;
+
+    control.setValue(!control.value);
+  }
+
   selectCategory(category: string): void {
     this.createForm.controls.category.setValue(category);
     this.isDropdownOpen = false;
@@ -57,7 +65,7 @@ export class SurveyForm {
 
   onSubmit() {
     console.log("hello");
-
+    console.log(this.createForm.value);
   }
 
 
