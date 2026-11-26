@@ -55,28 +55,36 @@
                                             class="create-survey--form-card--top--left--bottom--choose-category--drop-down--button"
                                             type="button" (click)="toggleDropdown()">
                                             <p>Choose category</p>
-                                            <svg class="create-survey--form-card--top--left--bottom--choose-category--drop-down--button__svg" [class.rotated]="isDropdownOpen" [class.choosen] = "isChoosen" xmlns="http://www.w3.org/2000/svg" width="15" height="8"
+                                            <svg class="create-survey--form-card--top--left--bottom--choose-category--drop-down--button__svg"
+                                                [class.rotated]="isDropdownOpen" [class.choosen]="isChoosen"
+                                                xmlns="http://www.w3.org/2000/svg" width="15" height="8"
                                                 viewBox="0 0 15 8" fill="none">
-                                                <path 
+                                                <path
                                                     d="M6.5843 7.61702L0.261628 1.44681C0.174419 1.3617 0.109012 1.2695 0.065407 1.17021C0.0218023 1.07092 0 0.964539 0 0.851064C0 0.624114 0.0799419 0.425532 0.239826 0.255319C0.399709 0.0851064 0.610465 0 0.872093 0H14.1279C14.3895 0 14.6003 0.0851064 14.7602 0.255319C14.9201 0.425532 15 0.624114 15 0.851064C15 0.907802 14.9128 1.10638 14.7384 1.44681L8.4157 7.61702C8.27035 7.75887 8.125 7.85816 7.97965 7.91489C7.8343 7.97163 7.67442 8 7.5 8C7.32558 8 7.1657 7.97163 7.02035 7.91489C6.875 7.85816 6.72965 7.75887 6.5843 7.61702Z"
                                                     fill="white" />
                                             </svg>
                                         </button>
                                         @if (isDropdownOpen) {
-                                        <section class="create-survey--form-card--top--left--bottom--choose-category--drop-down--dropdown-list">
+                                        <section
+                                            class="create-survey--form-card--top--left--bottom--choose-category--drop-down--dropdown-list">
                                             <div (click)="selectCategory('Team Activities')">Team Activities</div>
                                             <div (click)="selectCategory('Health & Wellness')">Health & Wellness</div>
-                                            <div (click)="selectCategory('Gaming & Entertainment')">Gaming & Entertainment</div>
-                                            <div (click)="selectCategory('Education & Learning')">Education & Learning</div>
-                                            <div (click)="selectCategory('Lifestyle & Preferences')">Lifestyle & Preferences</div>
-                                            <div (click)="selectCategory('Technology & Innovation')">Technology & Innovation</div>
+                                            <div (click)="selectCategory('Gaming & Entertainment')">Gaming &
+                                                Entertainment</div>
+                                            <div (click)="selectCategory('Education & Learning')">Education & Learning
+                                            </div>
+                                            <div (click)="selectCategory('Lifestyle & Preferences')">Lifestyle &
+                                                Preferences</div>
+                                            <div (click)="selectCategory('Technology & Innovation')">Technology &
+                                                Innovation</div>
                                         </section>
                                         }
                                     </section>
-                                    <div class="create-survey--form-card--top--left--bottom--choose-category--show-choose-category">
+                                    <div
+                                        class="create-survey--form-card--top--left--bottom--choose-category--show-choose-category">
                                         {{ createForm.controls.category.value }}
                                     </div>
-                                    
+
                                 </div>
                             </section>
 
@@ -99,12 +107,12 @@
 
                     </fieldset>
 
-                    <fieldset class="create-survey--form-card--bottom">
-                        <section class="create-survey--form-card--bottom--question-card">
+                    <fieldset class="create-survey--form-card--bottom" formArrayName="questions">
+                        <section class="create-survey--form-card--bottom--question-card" [formGroupName]="questionIndex">
                             <section class="create-survey--form-card--bottom--question-card--question">
                                 <div>
-                                    <label for="question_1">
-                                        <p>1. Question</p>
+                                    <label [for]="'questiion_' + questionIndex">
+                                        <p>{{ questionIndex + 1 }}. Question</p>
                                     </label>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"
                                         fill="none">
@@ -114,26 +122,35 @@
                                     </svg>
                                 </div>
 
-                                <input id="question_1" type="text" formControlName="question_1">
+                                <input [id]="'questiion_' + questionIndex" type="text" formControlName="question">
                             </section>
                             <section class="create-survey--form-card--bottom--question-card--answers">
                                 <section class="create-survey--form-card--bottom--question-card--answers--head">
                                     <p>Answers</p>
-                                    <div>
+                                    <button class="create-survey--form-card--bottom--question-card--answers--head--button" type="button" role="checkbox" [attr.aria-checked]="!!createForm.controls.questions.at(0).controls.allowMultipleAnswers.value" (click)="toggleMultipleAnswers(0)">
+                                        @if (createForm.controls.questions.at(0).controls.allowMultipleAnswers.value) {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21"
                                             viewBox="0 0 21 21" fill="none">
+                                            <rect x="3" y="3" width="15" height="15" rx="3" fill="#FFB770" />
                                             <path
-                                                d="M6 3.75H15C16.2426 3.75 17.25 4.75736 17.25 6V15C17.25 16.2426 16.2426 17.25 15 17.25H6C4.75736 17.25 3.75 16.2426 3.75 15V6C3.75 4.75736 4.75736 3.75 6 3.75Z"
+                                                d="M8.91978 12.2539L14.4006 6.21381C14.5299 6.07127 14.6808 6 14.8533 6C15.0257 6 15.1766 6.07127 15.306 6.21381C15.4353 6.35635 15.5 6.52561 15.5 6.7216C15.5 6.91759 15.4353 7.08686 15.306 7.2294L9.37247 13.7862C9.24313 13.9287 9.09223 14 8.91978 14C8.74732 14 8.59642 13.9287 8.46708 13.7862L5.68625 10.7216C5.55691 10.5791 5.49493 10.4098 5.50032 10.2138C5.50571 10.0178 5.57308 9.84855 5.70242 9.70601C5.83176 9.56347 5.98535 9.4922 6.1632 9.4922C6.34104 9.4922 6.49463 9.56347 6.62397 9.70601L8.91978 12.2539Z"
+                                                fill="#35273A" />
+                                        </svg>
+                                        } @else {
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21"
+                                            viewBox="0 0 21 21" fill="none">
+                                            <rect x="3.75" y="3.75" width="13.5" height="13.5" rx="2.25"
                                                 stroke-width="1.5" stroke-linejoin="round" stroke="white" />
                                         </svg>
+                                        }
                                         <p>Allow multiple answers.</p>
-                                    </div>
+                                    </button>
                                 </section>
-                                <section class="create-survey--form-card--bottom--question-card--answers--main">
+                                <section class="create-survey--form-card--bottom--question-card--answers--main" formArrayName="answers">
                                     <div
                                         class="create-survey--form-card--bottom--question-card--answers--main--answer-card">
                                         <label for="answer_1">A.</label>
-                                        <input id="answer_1" type="text">
+                                        <input id="answer_1" type="text" [formControlName]="0">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                             viewBox="0 0 26 26" fill="none">
                                             <path
@@ -143,8 +160,8 @@
                                     </div>
                                     <div
                                         class="create-survey--form-card--bottom--question-card--answers--main--answer-card">
-                                        <label for="answer_1">B.</label>
-                                        <input id="answer_2" type="text">
+                                        <label for="answer_2">B.</label>
+                                        <input id="answer_2" type="text" [formControlName]="1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                             viewBox="0 0 26 26" fill="none">
                                             <path

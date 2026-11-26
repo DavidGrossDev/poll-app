@@ -256,11 +256,21 @@ textarea {
                             @include md.f_mulish($fw: 700, $fs: 18px);
                         }
 
-                        >div {
+                        // >div {
+                        //     @include md.d_flex($jc: space-between, $gp: 4px);
+
+                        //     >p {
+                        //         @include md.f_mulish($fs: 14px);
+                        //     }
+                        // }
+
+                        &--button {
+                            border-width: 0;
+                            background-color: rgba(0, 0, 0, 0);
                             @include md.d_flex($jc: space-between, $gp: 4px);
 
                             >p {
-                                @include md.f_mulish($fs: 14px);
+                                 @include md.f_mulish($fs: 14px);
                             }
                         }
                     }
